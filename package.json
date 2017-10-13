@@ -1,0 +1,44 @@
+{
+	"name": "vscode-cargo-test",
+	"version": "0.0.0",
+	"description": "Automatic Cargo test runner for VS Code",
+	"main": "app/index.js",
+	"author": "Vitaly Domnikov <dotcypress@gmail.com>",
+  "publisher": "dotcypress",
+	"license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dotcypress/vscode-cargo-test/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotcypress/vscode-cargo-test.git"
+  },
+  "engines": {
+		"vscode": "^1.13.0"
+	},
+	"activationEvents": [
+		"onView:CargoTestView"
+	],
+	"contributes": {
+		"views": {
+			"explorer": [
+				{
+					"id": "CargoTestView",
+					"name": "Cargo Test"
+				}
+			]
+		}
+	},
+	"devDependencies": {
+		"vscode": "^1.1.5",
+		"eslint": "^4.1.1",
+		"eslint-config-standard": "^10.2.1",
+		"eslint-plugin-import": "^2.6.0",
+		"eslint-plugin-node": "^5.1.0",
+		"eslint-plugin-promise": "^3.4.0",
+		"eslint-plugin-standard": "^3.0.1"
+	},
+	"dependencies": {
+		"execa": "^0.8.0"
+	}
+}
