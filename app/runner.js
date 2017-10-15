@@ -1,8 +1,6 @@
 const readline = require('readline')
 const execa = require('execa')
 
-const TEST_KINDS = ['doc', 'lib', 'tests', 'benches']
-
 class TestRunner {
   constructor (rootPath, renderFn) {
     this.rootPath = rootPath
@@ -12,15 +10,15 @@ class TestRunner {
   }
 
   run () {
-    TEST_KINDS.map((kind) => this.loadTests(kind))
-    TEST_KINDS.map((kind) => this.runTests(kind))
+    this.loadTests('all')
+    this.runTests('all')
   }
 
   handleUpdate (update) {
     const target = update.target
     this.tests[target] = this.tests[target] || {
       target: target,
-      name: target.charAt(0).toUpperCase() + target.slice(1),
+      name: 'All Tests',
       children: []
     }
     const node = this.ensureChild(this.tests[target], update.name.split('::'))
